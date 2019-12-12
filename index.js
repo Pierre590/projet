@@ -25,8 +25,8 @@ function loginStatus () {
     xhr.onreadystatechange = function () {
         if(this.readyState === 4){
             const response = JSON.parse(this.response)
-            document.getElementById('image').
-            setAttribute('src',response.picture)
+            /*document.getElementById('image').
+            setAttribute('src',response.picture)*/
         }
     }
 
