@@ -1,3 +1,10 @@
 body {
     background-color: black;
 }
+
+.test {
+    background-image: url('map.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

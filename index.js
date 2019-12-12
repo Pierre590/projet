@@ -19,6 +19,21 @@ function loginStatus () {
   const isSignedIn = auth.isSignedIn.get()
   if (isSignedIn) {
     user = auth.currentUser.get()
+    const idToken = user.getAuthResponse().id_token
+
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function () {
+        if(this.readyState === 4){
+            const response = JSON.parse(this.response)
+            document.getElementById('image').
+            setAttribute('src',response.picture)
+        }
+    }
+
+    xhr.open ('POST', 'google.php', true)
+    xhr.setRequestHeader('Content-Type', "application/x-www-form-urlencoded")
+    xhr.send(`id_token=${idToken}`)
+
     displayUser.style.display = 'inline-block'
     document.getElementById('name').
     textContent = user.getBasicProfile().getName()
@@ -41,7 +56,7 @@ function logoutGoogle () {
   auth.signOut().then(() => {
     auth.disconnect()
     auth.isSignedIn.set(null)
-    loginStatus()
+    window.location.href = 'logout.php'
   });
 }
 
