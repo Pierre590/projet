@@ -8,3 +8,24 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.popup-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-bg.show {
+    display: flex;
+}
+.popup {
+    height: 200px;
+    width: 600px;
+    background-color: aqua;
+
+}

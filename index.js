@@ -70,3 +70,17 @@ if (typeof gapi === 'object' && gapi.load) {
     then(initGAuth)
   })
 }
+
+var btn = document.querySelector('input');
+var popup = document.querySelector('.popup-bg');
+
+btn.addEventListener('click', updateBtn);
+function updateBtn() {
+  popup.classList.add('show')
+  popup.addEventListener('click', e => {
+    if (e.target.classList.contains('popup'))
+      return
+    popup.classList.remove('show')
+    popup.removeEventListener('click')
+  })
+}
