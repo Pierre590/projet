@@ -29,3 +29,7 @@ body {
     background-color: beige;
 
 }
+.logo img{
+    height: 120px;
+    width: 120px;
+}
